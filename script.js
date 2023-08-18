@@ -1,6 +1,10 @@
 const container = document.querySelector('.container'); 
 container.style.cssText = 'display: flex';
-let row=25; col=5;
+
+let row = 16;
+let totalBoxes=row*row;
+let basisPercent = 100/row;
+
 
 // for (let j = 0; j < col; j++) {
 //     const column = document.createElement('div');
@@ -17,10 +21,10 @@ let row=25; col=5;
 
 
 //adjust the percent of flex-basis from 20% to be dynamic
-    for (let i = 0; i < row; i++) {
+    for (let i = 0; i < totalBoxes; i++) {
         let box = document.createElement('div');
         box.classList.add('boxes');
-        box.style.cssText = 'flex: 0 0 20%; background-color: blue; border: solid';
+        box.style.cssText = `flex: 0 0 ${basisPercent}%; background-color: blue; border: solid`;
         container.appendChild(box);
     }
 
