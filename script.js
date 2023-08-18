@@ -1,19 +1,28 @@
 const container = document.querySelector('.container'); 
 container.style.cssText = 'display: flex';
-let row=5; col=5;
+let row=25; col=5;
 
-for (let j = 0; j < col; j++) {
-    const column = document.createElement('div');
+// for (let j = 0; j < col; j++) {
+//     const column = document.createElement('div');
 
+//     for (let i = 0; i < row; i++) {
+//         let box = document.createElement('div');
+//         box.classList.add('boxes');
+//         box.style.cssText = 'flex: 1; background-color: blue; border: solid';
+//         column.appendChild(box);
+//     }
+
+//     container.appendChild(column);
+// }
+
+
+//adjust the percent of flex-basis from 20% to be dynamic
     for (let i = 0; i < row; i++) {
         let box = document.createElement('div');
         box.classList.add('boxes');
-        box.style.cssText = 'width: 5em; height: 5em; background-color: blue; border: solid';
-        column.appendChild(box);
+        box.style.cssText = 'flex: 0 0 20%; background-color: blue; border: solid';
+        container.appendChild(box);
     }
-
-    container.appendChild(column);
-}
 
 function mark() {
     this.style.backgroundColor = 'red';
