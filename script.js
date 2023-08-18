@@ -1,6 +1,9 @@
 const container = document.querySelector('.container'); 
 container.style.cssText = 'display: flex';
 
+const sizeButton = document.querySelector('.size');
+
+
 let row = 16;
 let totalBoxes=row*row;
 let basisPercent = 100/row;
