@@ -10,6 +10,20 @@ function getRandomColor() {
     return `rgb(${red}, ${green}, ${blue})`;
   }
 
+let steps = 10;
+let blackColorOneRgb;
+let intensityPerStep = 255 / (steps);
+let currentStep = steps-1;
+function getProgressiveBlack() {
+    blackColorOneRgb = Math.round(intensityPerStep * currentStep);
+    if(currentStep > 0) {
+        --currentStep;
+    } else {
+        currentStep = steps-1;
+    }
+    return `rgb(${blackColorOneRgb},${blackColorOneRgb},${blackColorOneRgb})`;
+}
+
 randColorButton.addEventListener('click', function() {
     this.classList.toggle('randColorEnabled');
 })
@@ -18,7 +32,7 @@ function mark() {
     if(randColorButton.classList.contains('randColorEnabled')) {
         this.style.backgroundColor = getRandomColor();
     } else {
-        this.style.backgroundColor = 'black';
+        this.style.backgroundColor = getProgressiveBlack();
     }
     // this.style.backgroundColor = 'red';
 }
@@ -50,9 +64,10 @@ function enterSize() {
             }
         }
     } while(!row);
-   
    container.textContent = '';
    createBoxes();
+
+   currentStep = steps-1;
 }
 
 const sizeButton = document.querySelector('.size');
