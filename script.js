@@ -1,10 +1,34 @@
 const container = document.querySelector('.container'); 
 container.style.cssText = 'display: flex';
 
+const randColorButton = document.querySelector('.randColor');
+
+
 let className = 'mark';
+
+function getRandomColor() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`;
+  }
+
+randColorButton.addEventListener('click', function() {
+    this.classList.toggle('randColorEnabled');
+})
+
 function mark() {
+    if(randColorButton.classList.contains('randColorEnabled')) {
+        className = '';
+        this.style.backgroundColor = getRandomColor();
+    } else {
+        if(this.style.backgroundColor) {
+            this.style.removeProperty('background-color');
+        }
+        className = 'mark';
+        this.classList.add(className);
+    }
     // this.style.backgroundColor = 'red';
-    this.classList.add(className);
 }
 
 let row =16;
@@ -42,5 +66,4 @@ function enterSize() {
 const sizeButton = document.querySelector('.size');
 sizeButton.addEventListener('click', enterSize);
 
-const gradientButton = document.querySelector('.gradient');
-gradientButton.addEventListener('click', makeGradientBox);
+
