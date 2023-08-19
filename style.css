@@ -25,3 +25,15 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+
+.mark {
+    background-color: red;
+}
+
+.random-color {
+    background-color: rgb(
+      random(0, 255),
+      random(0, 255),
+      random(0, 255)
+    );
+  }

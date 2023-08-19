@@ -1,7 +1,14 @@
 const container = document.querySelector('.container'); 
 container.style.cssText = 'display: flex';
 
+let className = 'mark';
+function mark() {
+    // this.style.backgroundColor = 'red';
+    this.classList.add(className);
+}
+
 let row =16;
+
 function createBoxes () {
     let totalBoxes=row*row;
     let basisPercent = 100/row;
@@ -9,16 +16,12 @@ function createBoxes () {
         for (let i = 0; i < totalBoxes; i++) {
             let box = document.createElement('div');
             box.classList.add('boxes');
-            box.style.cssText = `flex: 0 0 ${basisPercent}%; background-color: blue; border: solid`;
+            box.style.cssText = `flex: 0 0 ${basisPercent}%; border: solid`;
             container.appendChild(box);
         }
 
         const boxes = document.querySelectorAll('.boxes');
         boxes.forEach(box => box.addEventListener('mouseenter', mark));
-}
-
-function mark() {
-    this.style.backgroundColor = 'red';
 }
 
 createBoxes();
