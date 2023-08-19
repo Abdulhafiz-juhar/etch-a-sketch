@@ -23,7 +23,13 @@ function mark() {
 
 createBoxes();
 function enterSize() {
-   row = parseInt(prompt('Please enter the size'));
+    row = parseInt(prompt('Please enter the number of squares per side'));
+    if (row > 100) {
+        while (row > 100) {
+            row = parseInt(prompt('The number must be lessthan 100, Please try again!'));
+        }
+    }
+   
    container.textContent = '';
    createBoxes();
 }
