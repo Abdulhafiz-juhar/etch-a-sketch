@@ -38,3 +38,6 @@ function enterSize() {
 
 const sizeButton = document.querySelector('.size');
 sizeButton.addEventListener('click', enterSize);
+
+const gradientButton = document.querySelector('.gradient');
+gradientButton.addEventListener('click', makeGradientBox);
