@@ -3,9 +3,6 @@ container.style.cssText = 'display: flex';
 
 const randColorButton = document.querySelector('.randColor');
 
-
-let className = 'mark';
-
 function getRandomColor() {
     const red = Math.floor(Math.random() * 256);
     const green = Math.floor(Math.random() * 256);
@@ -19,14 +16,9 @@ randColorButton.addEventListener('click', function() {
 
 function mark() {
     if(randColorButton.classList.contains('randColorEnabled')) {
-        className = '';
         this.style.backgroundColor = getRandomColor();
     } else {
-        if(this.style.backgroundColor) {
-            this.style.removeProperty('background-color');
-        }
-        className = 'mark';
-        this.classList.add(className);
+        this.style.backgroundColor = 'black';
     }
     // this.style.backgroundColor = 'red';
 }
