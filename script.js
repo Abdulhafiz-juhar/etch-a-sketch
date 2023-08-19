@@ -75,3 +75,4 @@ sizeButton.addEventListener('click', enterSize);
 
 
 // make the progressive darkening also by botton toggle
+// And make the default normal darkening
