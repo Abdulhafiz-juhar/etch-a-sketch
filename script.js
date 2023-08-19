@@ -74,3 +74,4 @@ const sizeButton = document.querySelector('.size');
 sizeButton.addEventListener('click', enterSize);
 
 
+// make the progressive darkening also by botton toggle
