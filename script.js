@@ -2,6 +2,7 @@ const container = document.querySelector('.container');
 container.style.cssText = 'display: flex';
 
 const randColorButton = document.querySelector('.randColor');
+const progressiveColorButton = document.querySelector('.progressiveColor')
 
 function getRandomColor() {
     const red = Math.floor(Math.random() * 256);
@@ -25,14 +26,25 @@ function getProgressiveBlack() {
 }
 
 randColorButton.addEventListener('click', function() {
-    this.classList.toggle('randColorEnabled');
-})
+    this.classList.add('randColorEnabled');
+    if(progressiveColorButton.classList.contains('progressiveColorEnabled')) {
+        progressiveColorButton.classList.remove('progressiveColorEnabled');
+    }
+});
+progressiveColorButton.addEventListener('click',function() {
+    this.classList.add('progressiveColorEnabled');
+    if(randColorButton.classList.contains('randColorEnabled')) {
+        randColorButton.classList.remove('randColorEnabled');
+    }
+});
 
 function mark() {
     if(randColorButton.classList.contains('randColorEnabled')) {
         this.style.backgroundColor = getRandomColor();
-    } else {
+    } else if(progressiveColorButton.classList.contains('progressiveColorEnabled')) {
         this.style.backgroundColor = getProgressiveBlack();
+    } else {
+        this.style.backgroundColor = 'black';
     }
     // this.style.backgroundColor = 'red';
 }
