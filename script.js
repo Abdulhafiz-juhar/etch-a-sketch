@@ -2,7 +2,8 @@ const container = document.querySelector('.container');
 container.style.cssText = 'display: flex';
 
 const randColorButton = document.querySelector('.randColor');
-const progressiveColorButton = document.querySelector('.progressiveColor')
+const progressiveColorButton = document.querySelector('.progressiveColor');
+const defaultColorButton = document.querySelector('.defaultColor');
 
 function getRandomColor() {
     const red = Math.floor(Math.random() * 256);
@@ -35,6 +36,14 @@ progressiveColorButton.addEventListener('click',function() {
     this.classList.add('progressiveColorEnabled');
     if(randColorButton.classList.contains('randColorEnabled')) {
         randColorButton.classList.remove('randColorEnabled');
+    }
+});
+defaultColorButton.addEventListener('click',function() {
+    if(randColorButton.classList.contains('randColorEnabled')) {
+        randColorButton.classList.remove('randColorEnabled');
+    }
+    if(progressiveColorButton.classList.contains('progressiveColorEnabled')) {
+        progressiveColorButton.classList.remove('progressiveColorEnabled');
     }
 });
 
